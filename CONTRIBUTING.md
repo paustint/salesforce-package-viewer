@@ -34,9 +34,9 @@ Unsure where to begin contributing to this project? You can start by looking thr
 
 Working on your first open source project or pull request? Here are some helpful tutorials:
 
--   [How to Contribute to an Open Source Project on GitHub][1]
--   [Make a Pull Request][2]
--   [First Timers Only][3]
+- [How to Contribute to an Open Source Project on GitHub][1]
+- [Make a Pull Request][2]
+- [First Timers Only][3]
 
 [0]: CODE_OF_CONDUCT.md
 [1]: https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github
