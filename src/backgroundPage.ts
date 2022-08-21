@@ -1,7 +1,7 @@
 import browser from 'webextension-polyfill';
 import { API_VERSION, CLIENT_ID, QUERY_PACKAGE2_VERSIONS } from './constants';
 import { AuthInfo, MessageAction, NULL, Package2Version, QueryResults, UserIdentity } from './types';
-import { isString } from 'lodash';
+import isString from 'lodash/isString';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const doNothing = NULL;
@@ -139,21 +139,21 @@ async function fetchJson<T = any>(url: string, loginInfo: AuthInfo, skipRefreshA
     console.log('[BG]', '[AUTH]', 'Token expired, attempting to refresh');
     const refreshResult = await fetch(`${loginInfo.instance_url}/services/oauth2/token`, {
       method: 'POST',
-      body: JSON.stringify({
+      headers: new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' }),
+      body: new URLSearchParams({
         client_id: CLIENT_ID,
         grant_type: 'refresh_token',
         refresh_token: loginInfo.refresh_token,
-      }),
+      }).toString(),
     });
     if (refreshResult.ok) {
       console.log('[BG]', '[AUTH]', 'Refresh successful');
       const refreshResponse = await refreshResult.json();
-      setLoginInfo({ ...loginInfo, ...refreshResponse });
+      loginInfo = { ...loginInfo, ...refreshResponse };
+      setLoginInfo(loginInfo);
       return fetchJson(url, loginInfo, true);
     } else {
       console.log('[BG]', '[AUTH]', 'Refresh failed');
-      // setLoginInfo(null);
-      // setUserInfo(null);
       throw new Error('Unauthorized');
     }
   } else if (!fetchResult.ok) {

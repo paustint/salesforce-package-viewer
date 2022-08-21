@@ -8,6 +8,17 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist/js'),
     filename: '[name].js',
+    environment: {
+      arrowFunction: true,
+      bigIntLiteral: true,
+      const: true,
+      destructuring: true,
+      dynamicImport: true,
+      forOf: true,
+      module: true,
+      optionalChaining: true,
+      templateLiteral: true,
+    },
   },
   module: {
     rules: [

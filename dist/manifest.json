@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Chrome Extension Starter",
-  "description": "A Chrome Extension starter kit",
+  "name": "Salesforce Package Version Viewer",
+  "description": "View all 2GP managed and unmanaged package versions.",
   "version": "1.0.0",
   "action": {
     "default_icon": {
@@ -19,14 +19,6 @@
     "48": "icon-48.png",
     "128": "icon-128.png"
   },
-  "host_permissions": [
-    "https://login.salesforce.com/*",
-    "https://test.salesforce.com/*",
-    "https://*.salesforce.com/*",
-    "https://*.visualforce.com/*",
-    "https://*.lightning.com/*",
-    "https://*.force.com/*",
-    "http://localhost:1234/*"
-  ],
-  "permissions": ["tabs", "notifications", "storage"]
+  "host_permissions": ["https://*.salesforce.com/*", "http://localhost:1234/*"],
+  "permissions": ["tabs", "storage"]
 }

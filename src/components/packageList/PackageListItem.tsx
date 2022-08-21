@@ -1,13 +1,14 @@
 import { BadgeCheckIcon, ClipboardCopyIcon, LockClosedIcon, LockOpenIcon } from '@heroicons/react/solid';
 import { Package2Version } from '@src/types';
-import { format, parseISO } from 'date-fns';
+import formatDate from 'date-fns/format';
+import parseISO from 'date-fns/parseISO';
 import React, { useEffect, useState } from 'react';
 import { Badge } from '../badge/component';
 
 export function PackageListItem({ item, isFirst }: { item: Package2Version; isFirst?: boolean }) {
   const [copied, setCopied] = useState(false);
 
-  const createdDate = format(parseISO(item.CreatedDate), 'MMM d, y h:m a');
+  const createdDate = formatDate(parseISO(item.CreatedDate), 'MMM d, y h:m a');
   const title = `v${item.MajorVersion}.${item.MinorVersion}.${item.PatchVersion}`;
   const link = `/packagingSetupUI/ipLanding.app?apvId=${item.SubscriberPackageVersion.Id}`;
   const LockIcon = item.IsPasswordProtected ? LockClosedIcon : LockOpenIcon;

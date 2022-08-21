@@ -1,14 +1,12 @@
+import { ExternalLinkIcon, RefreshIcon } from '@heroicons/react/solid';
+import { EmptyState } from '@src/components/emptyState';
 import { ErrorMessage } from '@src/components/errorMessage';
 import { PackageList } from '@src/components/packageList/component';
-import { Spinner } from '@src/components/spinner';
+import { UserAvatar } from '@src/components/userAvatar';
 import { CLIENT_ID } from '@src/constants';
 import { MessageAction, Package2Version, UserIdentity } from '@src/types';
 import React, { useEffect, useState } from 'react';
 import browser from 'webextension-polyfill';
-import css from './styles.module.css';
-import { ExternalLinkIcon, RefreshIcon } from '@heroicons/react/solid';
-import { UserAvatar } from '@src/components/userAvatar';
-import { EmptyState } from '@src/components/emptyState';
 
 function initiateLogin() {
   browser.tabs.create({
@@ -16,7 +14,7 @@ function initiateLogin() {
       response_type: 'token',
       client_id: CLIENT_ID,
       redirect_uri: 'http://localhost:1234/oauth/callback',
-      prompt: 'select_account',
+      prompt: 'login',
     }).toString()}`,
     active: true,
   });
@@ -87,11 +85,16 @@ export function Popup() {
   }
 
   // Renders the component tree
+  // bg-gray-200
   return (
-    <div className={css.popupContainer}>
+    <div className={'popupContainer bg-gray-200'}>
       <div className="px-4 py-4">
-        {!userInfo && <EmptyState onClick={initiateLogin} />}
-        {errorMessage && <ErrorMessage className="my-2" errorMessage={errorMessage} />}
+        {!userInfo && (
+          <>
+            <EmptyState onClick={initiateLogin} />
+            {errorMessage && <ErrorMessage className="my-2" errorMessage={errorMessage} />}
+          </>
+        )}
         {userInfo && (
           <>
             <div className="flex justify-between">
@@ -133,6 +136,7 @@ export function Popup() {
                 </div>
               </div>
             </div>
+            {errorMessage && <ErrorMessage className="my-2" errorMessage={errorMessage} />}
             <div>
               <PackageList packages={packages} />
             </div>

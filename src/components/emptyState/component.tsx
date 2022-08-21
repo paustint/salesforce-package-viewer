@@ -20,7 +20,9 @@ export function EmptyState({ className, onClick }: { className?: string; onClick
         />
       </svg>
       <h3 className="mt-2 text-sm font-medium text-gray-900">You are not logged in</h3>
-      <p className="mt-1 text-sm text-gray-500">Get started by logging in to your Partner Business Org / DevHub org.</p>
+      <p className="mt-1 text-sm text-gray-500">
+        Get started by logging in to your org where the package is associated.
+      </p>
       <div className="mt-6">
         <button
           type="button"
