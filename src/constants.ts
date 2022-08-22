@@ -1,6 +1,6 @@
 // AUTH / API
-export const API_VERSION = '55.0';
-export const CLIENT_ID = '3MVG9p1Q1BCe9GmDxw.U9y3e.da7uyWT3Ia4YYpsguCOcDZoJ6joTxtU42NIAwTeFK6mAw8l41JvFBuKfAhiO';
+export const API_VERSION = process.env.API_VERSION || '55.0';
+export const CLIENT_ID = process.env.CLIENT_ID || '';
 
 // QUERIES
 export const QUERY_PACKAGE2_VERSIONS = `SELECT Id, Name, CodeCoverage, CreatedDate,

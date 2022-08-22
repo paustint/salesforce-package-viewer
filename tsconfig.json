@@ -1,20 +1,19 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "paths": {
-      "@src/*": ["src/*"]
-    },
-    "target": "es2021",
+    "paths": { "@src/*": ["src/*"] },
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "lib": ["es2015", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
-    "rootDir": "./src",
     "outDir": "dist/js",
-    "strict": true,
+    "rootDir": "./src",
     "sourceMap": true,
-    "jsx": "react",
-    "esModuleInterop": true,
-    "lib": ["es2015", "dom"],
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true
+    "strict": true,
+    "target": "es2021",
+    "types": ["node", "@types/jest"]
   }
 }

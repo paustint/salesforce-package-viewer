@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
+const { EnvironmentPlugin } = require('webpack');
 
 module.exports = {
   entry: {
@@ -48,6 +50,12 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new EnvironmentPlugin({
+      API_VERSION: '55.0',
+      CLIENT_ID: '3MVG9p1Q1BCe9GmDxw.U9y3e.da7uyWT3Ia4YYpsguCOcDZoJ6joTxtU42NIAwTeFK6mAw8l41JvFBuKfAhiO',
+    }),
+  ],
   // Setup @src path resolution for TypeScript files
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
