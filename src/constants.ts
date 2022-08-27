@@ -10,4 +10,5 @@ Package2Id, PatchVersion, ReleaseVersion, Tag, ValidationSkipped,
 Package2.Id, Package2.Name,
 SubscriberPackageVersion.Id
 FROM Package2Version
-ORDER BY MajorVersion Desc, MinorVersion Desc`;
+WHERE IsDeprecated = FALSE
+ORDER BY MajorVersion Desc, MinorVersion Desc, PatchVersion Desc`;
