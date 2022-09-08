@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
+    "package": "yarn build && cd dist && rm -rf salesforce-package-viewer.zip && zip -vr salesforce-package-viewer.zip ./* -x \"*.DS_Store\"",
     "dev": "webpack -w --config webpack.dev.js",
     "test": "jest --config=jest.config.js",
     "lint": "eslint --fix -c ./.eslintrc.js \"src/**/*.ts*\"",

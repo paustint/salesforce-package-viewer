@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Salesforce Package Version Viewer",
   "description": "View all 2GP managed and unmanaged package versions.",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "action": {
     "default_icon": {
       "16": "icon-16.png",

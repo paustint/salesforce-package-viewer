@@ -11,4 +11,4 @@ Package2.Id, Package2.Name,
 SubscriberPackageVersion.Id
 FROM Package2Version
 WHERE IsDeprecated = FALSE
-ORDER BY MajorVersion Desc, MinorVersion Desc, PatchVersion Desc`;
+ORDER BY MajorVersion DESC, MinorVersion DESC, PatchVersion DESC, IsReleased DESC`;
